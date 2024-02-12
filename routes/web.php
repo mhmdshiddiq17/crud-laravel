@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,3 +27,13 @@ Route::get('/', function () {
 // })->name('welcome');
 Route::resource('book', BookController::class);
 // Route::get('welcome', [BookController::class, 'index'])->name('welcome');
+// Route::get('/register', function(){
+//     return view('register');
+// })->name('register');
+
+Route::group(['middleware' => 'guest'], function(){
+    Route::get('/register', [AuthController::class, 'register'])->name('register');
+    Route::post('/register', [AuthController::class, 'registerPost'])->name('regist');
+    Route::get('/login', [AuthController::class, 'login'])->name('login');
+    Route::post('/login', [AuthController::class, 'loginPost'])->name('login');
+});

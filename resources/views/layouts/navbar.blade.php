@@ -13,7 +13,7 @@
           <a class="nav-link" href="{{ route('book.index') }}">Book</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
+          <a class="nav-link" href="{{ route('register') }}">Pricing</a>
         </li>
         
       </ul>
